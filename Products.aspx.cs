@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpASP_MVC.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace CSharpASP_MVC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ProductRepository productsRepository = new ProductRepository();
+            productsRepository.getProducts();
         }
     }
 }
