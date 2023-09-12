@@ -12,8 +12,21 @@ namespace CSharpASP_MVC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ProductRepository productsRepository = new ProductRepository();
+            //productsRepository.getProducts();
+
+            //!IsPostBack ตรวจสอบการแสดงผลของหน้าจอ
+            if (!IsPostBack)
+            {
+                bindDataProducts();
+            }
+        }
+
+        private void bindDataProducts()
+        {
             ProductRepository productsRepository = new ProductRepository();
-            productsRepository.getProducts();
+            gridViewProductList.DataSource = productsRepository.getProducts();
+            gridViewProductList.DataBind();
         }
     }
 }
